@@ -1,7 +1,7 @@
 "use strict";
 
 const two = () => {
-	console.log("two вывожу сообщение");
+	console.log("вывожу сообщение");
 };
 
-export default two
+export default two;
