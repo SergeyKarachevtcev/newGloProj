@@ -2,7 +2,10 @@
 
 import timer from "./modules/timer";
 
-import two from "./modules/two";
+import modal from './modules/modal'
 
-timer("8 februar 2024");
-two();
+import menu from "./modules/menu";
+
+timer("10 februar 2024");
+menu();
+modal();
