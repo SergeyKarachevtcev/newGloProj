@@ -1,8 +1,11 @@
-"use strict"
+"use strict";
 
-import one from "./modules/one";
+import timer from "./modules/timer";
 
-import two from "./modules/two";
+import modal from './modules/modal'
 
-one();
-two();
+import menu from "./modules/menu";
+
+timer("10 februar 2024");
+menu();
+modal();
