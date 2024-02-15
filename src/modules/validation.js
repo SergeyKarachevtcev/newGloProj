@@ -10,7 +10,7 @@ const validation = () => {
 	// Валидация телефона
 	const inputPhone = document.querySelectorAll(".input-phone");
 	// Валидация инпута с текстом(Ваше сообщение)
-	const inputMessage = document.getElementById("form2-message");
+	const inputMessage   = document.getElementById("form2-message");
 
 	// Валидация калькулятора и полей инпут
 	inputCalc.forEach((input) => {

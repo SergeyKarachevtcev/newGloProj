@@ -8,7 +8,10 @@ import menu from "./modules/menu";
 
 import validation from "./modules/validation";
 
+import tabs from "./modules/tabs";
+
 timer("15 februar 2024");
 menu();
 modal();
 validation();
+tabs();
