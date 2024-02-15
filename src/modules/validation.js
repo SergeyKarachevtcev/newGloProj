@@ -9,6 +9,8 @@ const validation = () => {
 	const inputEmail = document.querySelectorAll(".input-email");
 	// Валидация телефона
 	const inputPhone = document.querySelectorAll(".input-phone");
+	// Валидация инпута с текстом(Ваше сообщение)
+	const inputMessage = document.getElementById("form2-message");
 
 	// Валидация калькулятора и полей инпут
 	inputCalc.forEach((input) => {
@@ -18,6 +20,13 @@ const validation = () => {
 
 			event.target.value = onlyNumbers; // Заменяем значение поля только цифрами
 		});
+	});
+
+	inputMessage.addEventListener("input", (event) => {
+		const inputValue = event.target.value;
+		const onlyCyrillic = inputValue.replace(/[^а-яА-ЯёЁ\s-]/g, ""); // Оставляем только кириллицу, дефис и пробел
+
+		event.target.value = onlyCyrillic; // Заменяем значение поля только кириллицей, дефисом и пробелом
 	});
 
 	// Валидация имени
@@ -44,7 +53,7 @@ const validation = () => {
 	inputPhone.forEach((input) => {
 		input.addEventListener("input", (event) => {
 			const inputValue = event.target.value;
-			const onlyDigitsAndSymbols = inputValue.replace(/[^\d()\-.]/g, ""); // Оставляем только цифры, круглые скобки и дефис
+			const onlyDigitsAndSymbols = inputValue.replace(/[^\d()\-]/g, ""); // Оставляем только цифры, круглые скобки и дефис
 
 			event.target.value = onlyDigitsAndSymbols; // Заменяем значение поля только цифрами, круглыми скобками и дефисом
 		});
