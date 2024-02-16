@@ -54,7 +54,6 @@ const validation = () => {
 		input.addEventListener("input", (event) => {
 			const inputValue = event.target.value;
 			const onlyDigitsAndSymbols = inputValue.replace(/[^\d()\-]/g, ""); // Оставляем только цифры, круглые скобки и дефис
-
 			event.target.value = onlyDigitsAndSymbols; // Заменяем значение поля только цифрами, круглыми скобками и дефисом
 		});
 	});
