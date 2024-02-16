@@ -6,16 +6,19 @@ const menu = () => {
 	const closeBtn = menu.querySelector(".close-btn");
 	const menuItems = menu.querySelectorAll("ul>li>a");
 
-	const handleMenu = () => {
-		menu.classList.toggle("active-menu");
+	const handleMenu = (event) => {
+		if (
+			event.target.classList.contains("menu") ||
+			event.target === closeBtn
+		) {
+			menu.classList.toggle("active-menu");
+		} else if (event.target.closest("ul>li>a")) {
+			menu.classList.remove("active-menu");
+		}
 	};
-
-	menuBtn.addEventListener("click", handleMenu);
-
-	closeBtn.addEventListener("click", handleMenu);
-
-	menuItems.forEach((menuItem) => {
-		menuItem.addEventListener("click", handleMenu);
+	document.addEventListener("click", handleMenu); // Запускаем функцию делегирования события
+	menuBtn.addEventListener("click", () => {
+		menu.classList.toggle("active-menu");
 	});
 };
 

@@ -3,8 +3,7 @@
 const modal = () => {
 	const popupBtns = document.querySelectorAll(".popup-btn");
 	const modal = document.querySelector(".popup");
-	const popupClose = modal.querySelector(".popup-close");
-	console.log(popupClose);
+	
 	popupBtns.forEach((popupBtn) => {
 		popupBtn.addEventListener("click", () => {
 			if (window.innerWidth >= 768) {
@@ -20,20 +19,23 @@ const modal = () => {
 			}
 		});
 	});
-	popupClose.addEventListener("click", () => {
-		if (window.innerWidth >= 768) {
-			// Проверяем ширину экрана
-			modal.style.opacity = "0"; // Устанавливаем начальное значение прозрачности модального окна
-			setTimeout(() => {
-				modal.style.display = "none";
-			}, 200); // Задержка перед скрытием модального окна
-		} else {
-			modal.style.display = "none"; // Скрываем модальное окно без анимации
+
+	modal.addEventListener("click", (e) => {
+		if (
+			!e.target.closest(".popup-content") ||
+			e.target.classList.contains("popup-close")
+		) {
+			if (window.innerWidth >= 768) {
+				// Проверяем ширину экрана
+				modal.style.opacity = "0"; // Устанавливаем начальное значение прозрачности модального окна
+				setTimeout(() => {
+					modal.style.display = "none";
+				}, 200); // Задержка перед скрытием модального окна
+			} else {
+				modal.style.display = "none"; // Скрываем модальное окно без анимации
+			}
 		}
 	});
 };
 
-modal();
-
-modal();
 export default modal;

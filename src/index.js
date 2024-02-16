@@ -10,7 +10,7 @@ import validation from "./modules/validation";
 
 import tabs from "./modules/tabs";
 
-timer("15 februar 2024");
+timer("17 februar 2024");
 menu();
 modal();
 validation();
