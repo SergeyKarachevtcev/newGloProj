@@ -1,16 +1,25 @@
 "use strict";
 
 const slider = () => {
-	//portfolio-item-active
 	const sliderBlock = document.querySelector(".portfolio-content");
 	const slides = document.querySelectorAll(".portfolio-item");
-	const dots = document.querySelectorAll(".dot");
-
-	let timerInterval = 3000;
+	const portfolioDots = document.querySelector(".portfolio-dots");
+	let dots = document.querySelectorAll(".dot");
+	let timerInterval = 1000;
 	//текущий слайд
 	let currentSlide = 0;
-
 	let interval;
+
+	const createDot = () => {
+		slides.forEach((index) => {
+			const dot = document.createElement("li");
+			dot.classList.add("dot");
+			portfolioDots.appendChild(dot); // Добавляет точку к portfolioDots
+			const firstDot = portfolioDots.querySelector("li"); //нахожу первый элемент 
+			firstDot.classList.add("dot-active"); // даю ему класс актив
+		});
+	};
+	createDot();
 
 	//функция смены активного слайда , удаляем класс у текщего слайда
 	const prevSlide = (elems, index, strClass) => {
@@ -23,6 +32,7 @@ const slider = () => {
 
 	//функция авто прокрутки слайда
 	const autoSlide = () => {
+		dots = document.querySelectorAll(".dot");
 		prevSlide(slides, currentSlide, "portfolio-item-active");
 		prevSlide(dots, currentSlide, "dot-active"); //отнимаем класс у обьяекта (точка)
 		currentSlide++;
@@ -43,15 +53,13 @@ const slider = () => {
 	};
 
 	sliderBlock.addEventListener("click", (e) => {
+		dots = document.querySelectorAll(".dot");
 		e.preventDefault();
-
 		if (!e.target.matches(".dot , .portfolio-btn ")) {
 			return;
 		}
-
 		prevSlide(slides, currentSlide, "portfolio-item-active");
 		prevSlide(dots, currentSlide, "dot-active"); //отнимаем класс у обьяекта (точка)
-
 		if (e.target.matches("#arrow-right")) {
 			currentSlide++;
 		} else if (e.target.matches("#arrow-left")) {
@@ -63,7 +71,6 @@ const slider = () => {
 				}
 			});
 		}
-
 		//если слайды подобшил к концу (стали больше длинны списка слайдов), счетчик слайдов обнуляется
 		if (currentSlide >= slides.length) {
 			currentSlide = 0;
@@ -72,11 +79,9 @@ const slider = () => {
 		if (currentSlide < 0) {
 			currentSlide = slides.length - 1;
 		}
-
 		nextSlide(slides, currentSlide, "portfolio-item-active");
 		nextSlide(dots, currentSlide, "dot-active"); //добавляем класс обьяекту (точка)
 	});
-
 	sliderBlock.addEventListener(
 		"mouseenter",
 		(e) => {
@@ -86,7 +91,6 @@ const slider = () => {
 		},
 		true
 	);
-
 	sliderBlock.addEventListener(
 		"mouseleave",
 		(e) => {
