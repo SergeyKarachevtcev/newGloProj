@@ -15,8 +15,8 @@ const slider = () => {
 			const dot = document.createElement("li");
 			dot.classList.add("dot");
 			portfolioDots.appendChild(dot); // Добавляет точку к portfolioDots
-			const firstDot = portfolioDots.querySelector("li"); //нахожу первый элемент 
-			firstDot.classList.add("dot-active"); // даю ему класс актив
+			const Dot = portfolioDots.querySelectorAll("li")[0]; //нахожу первый элемент
+			Dot.classList.add("dot-active"); // даю ему класс актив
 		});
 	};
 	createDot();
