@@ -6,8 +6,7 @@ const slider = () => {
 	const portfolioDots = document.querySelector(".portfolio-dots");
 	let dots = document.querySelectorAll(".dot");
 	let timerInterval = 1000;
-	//текущий слайд
-	let currentSlide = 0;
+	let currentSlide = 0; //текущий слайд
 	let interval;
 
 	const createDot = () => {
