@@ -19,7 +19,6 @@ const slider = () => {
 			Dot.classList.add("dot-active"); // даю ему класс актив
 		});
 	};
-	createDot();
 
 	//функция смены активного слайда , удаляем класс у текщего слайда
 	const prevSlide = (elems, index, strClass) => {
@@ -101,6 +100,7 @@ const slider = () => {
 		true
 	);
 
+	createDot();
 	startSlide(timerInterval);
 };
 
