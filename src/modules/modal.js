@@ -20,7 +20,6 @@ const modal = () => {
 						modal.style.display = "block";
 					},
 				});
-				
 			} else {
 				modal.style.display = "block"; // Отображаем модальное окно без анимации
 			}
@@ -32,21 +31,13 @@ const modal = () => {
 			!e.target.closest(".popup-content") ||
 			e.target.classList.contains("popup-close")
 		) {
-			if (window.innerWidth >= 768) {
-				animate({
-					duration: 1000,
-					timing(timeFraction) {
-						return timeFraction;
-					},
-					draw(progress) {
-						modal.style.opacity = progress;
-						modal.style.display = "none";
-					},
-				});
-			} else {
-				modal.style.display = "none"; // Скрываем модальное окно без анимации
-			}
+			modal.style.opacity = "1";
+			setTimeout(() => {
+				modal.style.transition = "opacity 0.5s"; // Добавляем плавную анимацию с помощью свойства transition
+				modal.style.opacity = "0"; // Постепенно увеличиваем прозрачность до 1
+			}, 100);
 		}
+		modal.style.display = "none";
 	});
 };
 
