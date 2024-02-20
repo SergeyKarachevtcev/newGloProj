@@ -5,7 +5,7 @@ const slider = () => {
 	const slides = document.querySelectorAll(".portfolio-item");
 	const portfolioDots = document.querySelector(".portfolio-dots");
 	let dots = document.querySelectorAll(".dot");
-	let timerInterval = 1000;
+	let timerInterval = 10000;
 	let currentSlide = 0; //текущий слайд
 	let interval;
 
@@ -14,8 +14,8 @@ const slider = () => {
 			const dot = document.createElement("li");
 			dot.classList.add("dot");
 			portfolioDots.appendChild(dot); // Добавляет точку к portfolioDots
-			const Dot = portfolioDots.querySelectorAll("li")[0]; //нахожу первый элемент
-			Dot.classList.add("dot-active"); // даю ему класс актив
+			const dots = portfolioDots.querySelectorAll("li")[0]; //нахожу первый элемент
+			dots.classList.add("dot-active"); // даю ему класс актив
 		});
 	};
 
