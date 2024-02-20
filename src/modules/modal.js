@@ -31,13 +31,12 @@ const modal = () => {
 			!e.target.closest(".popup-content") ||
 			e.target.classList.contains("popup-close")
 		) {
-			modal.style.opacity = "1";
+			modal.style.transition = "opacity 0.5s"; // Добавляем плавную анимацию с помощью свойства transition
+			modal.style.opacity = "0"; // Постепенно увеличиваем прозрачность до 1
 			setTimeout(() => {
-				modal.style.transition = "opacity 0.5s"; // Добавляем плавную анимацию с помощью свойства transition
-				modal.style.opacity = "0"; // Постепенно увеличиваем прозрачность до 1
-			}, 100);
+				modal.style.display = "none";
+			}, 500); // После завершения анимации скрываем модальное окно
 		}
-		modal.style.display = "none";
 	});
 };
 
