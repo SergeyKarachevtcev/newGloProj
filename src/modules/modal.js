@@ -31,11 +31,32 @@ const modal = () => {
 			!e.target.closest(".popup-content") ||
 			e.target.classList.contains("popup-close")
 		) {
-			modal.style.transition = "opacity 0.5s"; // Добавляем плавную анимацию с помощью свойства transition
+			
+			//скрытие модакли в ручну
+/* 			modal.style.transition = "opacity 0.5s"; // Добавляем плавную анимацию с помощью свойства transition
 			modal.style.opacity = "0"; // Постепенно увеличиваем прозрачность до 1
 			setTimeout(() => {
 				modal.style.display = "none";
-			}, 500); // После завершения анимации скрываем модальное окно
+			}, 500); // После завершения анимации скрываем модальное окно */
+
+			//скрытие модалки при помощи функции animate
+			if (window.innerWidth >= 768) {
+				//запускаем функцию анимации
+				animate({
+					duration: 500,
+					timing(timeFraction) {
+						return timeFraction;
+					},
+					draw(progress) {
+						modal.style.opacity = 1 - progress; // поворачиваем в спять функуцию
+						if (progress >= 1) {
+							modal.style.display = "none"; // отключаем модалку после завершения анимации
+						}
+					},
+				});
+			} else {
+				modal.style.display = "none"; // отключаем модальное окно без анимации
+			}
 		}
 	});
 };

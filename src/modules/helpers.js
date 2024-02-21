@@ -1,6 +1,5 @@
 "use strict";
 
-
 const animate = ({ timing, draw, duration }) => {
 	let start = performance.now();
 

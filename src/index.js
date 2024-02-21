@@ -14,7 +14,7 @@ import slider from "./modules/slider";
 
 import calc from "./modules/calc";
 
-timer("17 februar 2024");
+timer("22 februar 2024");
 menu();
 modal();
 validation();
