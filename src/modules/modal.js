@@ -11,7 +11,7 @@ const modal = () => {
 			if (window.innerWidth >= 768) {
 				//запускаем функцию анимации
 				animate({
-					duration: 500,
+					duration: 400,
 					timing(timeFraction) {
 						return timeFraction;
 					},
@@ -31,9 +31,8 @@ const modal = () => {
 			!e.target.closest(".popup-content") ||
 			e.target.classList.contains("popup-close")
 		) {
-			
 			//скрытие модакли в ручну
-/* 			modal.style.transition = "opacity 0.5s"; // Добавляем плавную анимацию с помощью свойства transition
+			/* 			modal.style.transition = "opacity 0.5s"; // Добавляем плавную анимацию с помощью свойства transition
 			modal.style.opacity = "0"; // Постепенно увеличиваем прозрачность до 1
 			setTimeout(() => {
 				modal.style.display = "none";
@@ -43,7 +42,7 @@ const modal = () => {
 			if (window.innerWidth >= 768) {
 				//запускаем функцию анимации
 				animate({
-					duration: 500,
+					duration: 200,
 					timing(timeFraction) {
 						return timeFraction;
 					},
