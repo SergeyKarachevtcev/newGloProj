@@ -25,19 +25,11 @@ const modal = () => {
 			}
 		});
 	});
-
 	modal.addEventListener("click", (e) => {
 		if (
 			!e.target.closest(".popup-content") ||
 			e.target.classList.contains("popup-close")
 		) {
-			//скрытие модакли в ручну
-			/* 			modal.style.transition = "opacity 0.5s"; // Добавляем плавную анимацию с помощью свойства transition
-			modal.style.opacity = "0"; // Постепенно увеличиваем прозрачность до 1
-			setTimeout(() => {
-				modal.style.display = "none";
-			}, 500); // После завершения анимации скрываем модальное окно */
-
 			//скрытие модалки при помощи функции animate
 			if (window.innerWidth >= 768) {
 				//запускаем функцию анимации
