@@ -1,7 +1,7 @@
 "use strict";
 
 const validation = () => {
-	/* 	// Валидация калькулятора и полей инпут
+	// Валидация калькулятора и полей инпут
 	const inputCalc = document.querySelectorAll(".input-calc");
 	// Валидация имени
 	const inputName = document.querySelectorAll(".input-name");
@@ -10,7 +10,7 @@ const validation = () => {
 	// Валидация телефона
 	const inputPhone = document.querySelectorAll(".input-phone");
 	// Валидация инпута с текстом(Ваше сообщение)
-	const inputMessage   = document.getElementById("form2-message");
+	const inputMessage = document.getElementById("form2-message");
 
 	// Валидация калькулятора и полей инпут
 	inputCalc.forEach((input) => {
@@ -56,7 +56,7 @@ const validation = () => {
 			const onlyDigitsAndSymbols = inputValue.replace(/[^\d()\-]/g, ""); // Оставляем только цифры, круглые скобки и дефис
 			event.target.value = onlyDigitsAndSymbols; // Заменяем значение поля только цифрами, круглыми скобками и дефисом
 		});
-	}); */
+	});
 };
 
 export default validation;

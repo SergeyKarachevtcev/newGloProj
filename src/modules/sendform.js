@@ -111,10 +111,6 @@ const sendForm = ({ formId, sumeElem = [] }) => {
 			setTimeout(function () {
 				statusBlock.style.color = ""; // Сброс цвета текста через 5 секунд
 				statusBlock.textContent = ""; // Очистка содержимого через 5 секунд
-				//чистим содержимое инпутов
-				formElements.forEach((input) => {
-					input.value = "";
-				});
 			}, 3000);
 			/* alert("Data is not valide"); */
 		}
