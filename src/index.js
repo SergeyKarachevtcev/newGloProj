@@ -16,7 +16,7 @@ import calc from "./modules/calc";
 
 import sendForm from "./modules/sendform";
 
-timer("6 March 2024");
+timer("15 March 2024");
 menu();
 modal();
 validation();
@@ -40,5 +40,3 @@ sendForm({
 	formId: "form3",
 	sumeElem: [],
 });
-
-
