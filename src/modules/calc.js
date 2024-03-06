@@ -37,10 +37,10 @@ const calc = (price = 100) => {
 			totalValue = 0;
 		}
 
-		total.textContent = totalValue;
+		total.textContent = totalValue.toFixed(2);
 	};
 
-	calcBlock.addEventListener("change", (e) => {
+	calcBlock.addEventListener("input", (e) => {
 		if (
 			e.target === calcType ||
 			e.target === calcSquare ||
