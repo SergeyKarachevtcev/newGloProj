@@ -25,7 +25,7 @@ const sendForm = ({ formId, sumeElem = [] }) => {
 				success = false;
 				setTimeout(function () {
 					input.style.border = ""; // Сброс стилей бордера через 5 секунд
-				}, 5000);
+				}, 3000);
 			}
 		});
 		// Проверка ввода в поля inputName
@@ -36,7 +36,7 @@ const sendForm = ({ formId, sumeElem = [] }) => {
 				success = false;
 				setTimeout(function () {
 					input.style.border = ""; // Сброс стилей бордера через 5 секунд
-				}, 5000);
+				}, 3000);
 			}
 		});
 		// Проверка ввода в поле inputMessage
@@ -46,7 +46,7 @@ const sendForm = ({ formId, sumeElem = [] }) => {
 			success = false;
 			setTimeout(function () {
 				input.style.border = ""; // Сброс стилей бордера через 5 секунд
-			}, 5000);
+			}, 3000);
 		}
 
 		return success;
@@ -91,7 +91,7 @@ const sendForm = ({ formId, sumeElem = [] }) => {
 					setTimeout(function () {
 						statusBlock.style.color = ""; // Сброс цвета текста через 5 секунд
 						statusBlock.textContent = ""; // Очистка содержимого через 5 секунд
-					}, 5000);
+					}, 3000);
 				})
 				.catch((error) => {
 					statusBlock.style.color = "white";
@@ -103,7 +103,7 @@ const sendForm = ({ formId, sumeElem = [] }) => {
 						formElements.forEach((input) => {
 							input.value = "";
 						});
-					}, 5000);
+					}, 3000);
 				});
 		} else {
 			statusBlock.style.color = "red";
@@ -115,7 +115,7 @@ const sendForm = ({ formId, sumeElem = [] }) => {
 				formElements.forEach((input) => {
 					input.value = "";
 				});
-			}, 5000);
+			}, 3000);
 			/* alert("Data is not valide"); */
 		}
 	};
