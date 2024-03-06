@@ -1,7 +1,7 @@
 "use strict";
 
 const validation = () => {
-	// Валидация калькулятора и полей инпут
+	/* 	// Валидация калькулятора и полей инпут
 	const inputCalc = document.querySelectorAll(".input-calc");
 	// Валидация имени
 	const inputName = document.querySelectorAll(".input-name");
@@ -33,7 +33,7 @@ const validation = () => {
 	inputName.forEach((input) => {
 		input.addEventListener("input", (event) => {
 			const inputValue = event.target.value;
-			const onlyCyrillic = inputValue.replace(/[^а-яА-ЯёЁ\s-]/g, ""); // Оставляем только кириллицу, дефис и пробел
+			const onlyCyrillic = inputValue.replace(/[^а-яА-ЯёЁ\s]/g, ""); // Оставляем только кириллицу, дефис и пробел
 
 			event.target.value = onlyCyrillic; // Заменяем значение поля только кириллицей, дефисом и пробелом
 		});
@@ -56,7 +56,7 @@ const validation = () => {
 			const onlyDigitsAndSymbols = inputValue.replace(/[^\d()\-]/g, ""); // Оставляем только цифры, круглые скобки и дефис
 			event.target.value = onlyDigitsAndSymbols; // Заменяем значение поля только цифрами, круглыми скобками и дефисом
 		});
-	});
+	}); */
 };
 
 export default validation;

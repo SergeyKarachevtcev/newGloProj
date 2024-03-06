@@ -5,6 +5,7 @@ const sendForm = ({ formId, sumeElem = [] }) => {
 	const loadText = "loading...";
 	const errorText = "Some Error...";
 	const successText = "THX! massager worcs...";
+	const formErrors = "form data is not walid";
 
 	//валидация данных
 	const inputName = document.querySelectorAll('[name="user_name"]');
@@ -17,26 +18,40 @@ const sendForm = ({ formId, sumeElem = [] }) => {
 		let success = true;
 		//валидация данных
 		// Проверка ввода в поля inputPhone
-		const phoneRegex = /^[0-9()+-]*$/;
+		const phoneRegex = /^(\+)?[0-9()+-]*$/;
 		inputPhone.forEach((input) => {
 			if (!phoneRegex.test(input.value)) {
+				input.style.border = "3px solid red";
 				success = false;
+				setTimeout(function () {
+					input.style.border = ""; // Сброс стилей бордера через 5 секунд
+				}, 5000);
 			}
 		});
 		// Проверка ввода в поля inputName
 		const nameRegex = /^[а-яА-Я\s]*$/;
 		inputName.forEach((input) => {
 			if (!nameRegex.test(input.value)) {
+				input.style.border = "3px solid red";
 				success = false;
+				setTimeout(function () {
+					input.style.border = ""; // Сброс стилей бордера через 5 секунд
+				}, 5000);
 			}
 		});
 		// Проверка ввода в поле inputMessage
-		const messageRegex = /^[а-яА-Я0-9\s.,!?]*$/;
+		const messageRegex = /^[а-яА-Я\s0-9.,!?]*$/;
 		if (!messageRegex.test(inputMessage.value)) {
+			input.style.border = "3px solid red";
 			success = false;
+			setTimeout(function () {
+				input.style.border = ""; // Сброс стилей бордера через 5 секунд
+			}, 5000);
 		}
+
 		return success;
 	};
+
 	const sendData = (data) => {
 		return fetch("https://jsonplaceholder.typicode.com/posts", {
 			method: "POST",
@@ -58,7 +73,6 @@ const sendForm = ({ formId, sumeElem = [] }) => {
 		});
 		sumeElem.forEach((elem) => {
 			const element = document.getElementById(elem.id);
-			console.log(element);
 			if (elem.type === "block") {
 				formBody[elem.id] = element.textContent;
 			} else if (elem.type === "input") {
@@ -70,16 +84,39 @@ const sendForm = ({ formId, sumeElem = [] }) => {
 				.then((data) => {
 					statusBlock.style.color = "white";
 					statusBlock.textContent = successText;
+					//чистим содержимое инпутов
 					formElements.forEach((input) => {
 						input.value = "";
 					});
+					setTimeout(function () {
+						statusBlock.style.color = ""; // Сброс цвета текста через 5 секунд
+						statusBlock.textContent = ""; // Очистка содержимого через 5 секунд
+					}, 5000);
 				})
 				.catch((error) => {
 					statusBlock.style.color = "white";
 					statusBlock.textContent = errorText;
+					setTimeout(function () {
+						statusBlock.style.color = ""; // Сброс цвета текста через 5 секунд
+						statusBlock.textContent = ""; // Очистка содержимого через 5 секунд
+						//чистим содержимое инпутов
+						formElements.forEach((input) => {
+							input.value = "";
+						});
+					}, 5000);
 				});
 		} else {
-			alert("Data is not valide");
+			statusBlock.style.color = "red";
+			statusBlock.textContent = formErrors; // выводим текст об ошибке формы
+			setTimeout(function () {
+				statusBlock.style.color = ""; // Сброс цвета текста через 5 секунд
+				statusBlock.textContent = ""; // Очистка содержимого через 5 секунд
+				//чистим содержимое инпутов
+				formElements.forEach((input) => {
+					input.value = "";
+				});
+			}, 5000);
+			/* alert("Data is not valide"); */
 		}
 	};
 	try {
