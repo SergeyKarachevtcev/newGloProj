@@ -21,32 +21,27 @@ const modal = () => {
 					},
 				});
 			} else {
-				modal.style.display = "block"; // Отображаем модальное окно без анимации
+				modal.style.display = "block";
 			}
 		});
 	});
 	modal.addEventListener("click", (e) => {
-		if (
-			!e.target.closest(".popup-content") ||
-			e.target.classList.contains("popup-close")
-		) {
-			//скрытие модалки при помощи функции animate
+		if (!e.target.closest(".popup-content") || e.target.classList.contains("popup-close")) {
 			if (window.innerWidth >= 768) {
-				//запускаем функцию анимации
 				animate({
 					duration: 200,
 					timing(timeFraction) {
 						return timeFraction;
 					},
 					draw(progress) {
-						modal.style.opacity = 1 - progress; // поворачиваем в спять функуцию
+						modal.style.opacity = 1 - progress;
 						if (progress >= 1) {
-							modal.style.display = "none"; // отключаем модалку после завершения анимации
+							modal.style.display = "none";
 						}
 					},
 				});
 			} else {
-				modal.style.display = "none"; // отключаем модальное окно без анимации
+				modal.style.display = "none";
 			}
 		}
 	});

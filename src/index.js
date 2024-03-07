@@ -1,19 +1,12 @@
 "use strict";
 
 import timer from "./modules/timer";
-
 import modal from "./modules/modal";
-
 import menu from "./modules/menu";
-
 import validation from "./modules/validation";
-
 import tabs from "./modules/tabs";
-
 import slider from "./modules/slider";
-
 import calc from "./modules/calc";
-
 import sendForm from "./modules/sendform";
 
 timer("15 March 2024");
